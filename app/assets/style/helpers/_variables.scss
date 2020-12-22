@@ -6,12 +6,12 @@
 // Color system
 
 $white:    #fff !default;
-$gray-100: #f8f9fa !default;
+$gray-100: #8D8D8D !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
+$gray-600: #707070 !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
@@ -34,12 +34,12 @@ $grays: map-merge(
   $grays
 );
 
-$blue:    #007bff !default;
+$blue:    #916000 !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
 $red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
+$orange:  #fd7d14f8 !default;
 $yellow:  #ffc107 !default;
 $green:   #28a745 !default;
 $teal:    #20c997 !default;
@@ -86,7 +86,9 @@ $theme-colors: map-merge(
     "warning":    $warning,
     "danger":     $danger,
     "light":      $light,
-    "dark":       $dark
+    "dark":       $dark,
+    "white":      #fff,
+    "gray":       #E0E0E0
   ),
   $theme-colors
 );
@@ -142,9 +144,17 @@ $spacers: map-merge(
     0: 0,
     1: ($spacer * .25),
     2: ($spacer * .5),
-    3: $spacer,
-    4: ($spacer * 1.5),
-    5: ($spacer * 3)
+    "sm": ($spacer * .8125),
+    3: $spacer ,
+    4: ($spacer * 1.25),
+    5: ($spacer * 1.5),
+    6: ($spacer * 2),
+    7: ($spacer * 2.5),
+    8: ($spacer * 3),
+    9: ($spacer * 3.5),
+    10: ($spacer * 3.75),
+    11: ($spacer * 4),
+    12: ($spacer * 5)
   ),
   $spacers
 );
@@ -157,6 +167,7 @@ $sizes: map-merge(
     25: 25%,
     50: 50%,
     75: 75%,
+    80: 80%,
     100: 100%,
     auto: auto
   ),
@@ -176,12 +187,12 @@ $body-color:                $gray-900 !default;
 //
 // Style anchor elements.
 
-$link-color:                              theme-color("primary") !default;
+$link-color:                              unset !default;
 $link-decoration:                         none !default;
-$link-hover-color:                        darken($link-color, 15%) !default;
-$link-hover-decoration:                   underline !default;
+$link-hover-color:                        unset !default;
+$link-hover-decoration:                   none !default;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
-$emphasized-link-hover-darken-percentage: 15% !default;
+$emphasized-link-hover-darken-percentage: 0% !default;
 
 // Paragraphs
 //
@@ -215,7 +226,7 @@ $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1140px
+  xl: 1110px
 ) !default;
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -238,11 +249,12 @@ $line-height-lg:              1.5 !default;
 $line-height-sm:              1.5 !default;
 
 $border-width:                1px !default;
-$border-color:                $gray-300 !default;
+$border-color:                $white !default;
 
 $border-radius:               .25rem !default;
 $border-radius-lg:            .3rem !default;
 $border-radius-sm:            .2rem !default;
+$border-radius-max:           99em !default;
 
 $rounded-pill:                50rem !default;
 
@@ -302,6 +314,16 @@ $h3-font-size:                $font-size-base * 1.75 !default;
 $h4-font-size:                $font-size-base * 1.5 !default;
 $h5-font-size:                $font-size-base * 1.25 !default;
 $h6-font-size:                $font-size-base !default;
+
+$h1-h6: (
+  h1: $h1-font-size,
+  h2: $h2-font-size,
+  h3: $h3-font-size,
+  h4: $h4-font-size,
+  h5: $h5-font-size,
+  h6: $h6-font-size
+  ) !default;
+
 
 $headings-margin-bottom:      $spacer / 2 !default;
 $headings-font-family:        null !default;
@@ -387,10 +409,10 @@ $table-border-level:          -6 !default;
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
-$input-btn-padding-y:         .375rem !default;
-$input-btn-padding-x:         .75rem !default;
+$input-btn-padding-y:         0 !default;
+$input-btn-padding-x:         0 !default;
 $input-btn-font-family:       null !default;
-$input-btn-font-size:         $font-size-base !default;
+$input-btn-font-size:         null !default;
 $input-btn-line-height:       $line-height-base !default;
 
 $input-btn-focus-width:       .2rem !default;
@@ -445,7 +467,7 @@ $btn-link-disabled-color:     $gray-600 !default;
 $btn-block-spacing-y:         .5rem !default;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius:           $border-radius !default;
+$btn-border-radius:           $border-radius-max !default;
 $btn-border-radius-lg:        $border-radius-lg !default;
 $btn-border-radius-sm:        $border-radius-sm !default;
 
@@ -954,7 +976,7 @@ $modal-content-color:               null !default;
 $modal-content-bg:                  $white !default;
 $modal-content-border-color:        rgba($black, .2) !default;
 $modal-content-border-width:        $border-width !default;
-$modal-content-border-radius:       $border-radius-lg !default;
+$modal-content-border-radius:       $border-radius !default;
 $modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
 $modal-content-box-shadow-xs:       0 .25rem .5rem rgba($black, .5) !default;
 $modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba($black, .5) !default;

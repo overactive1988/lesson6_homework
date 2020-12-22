@@ -1,0 +1,107 @@
+.mv {
+    position: relative;
+    height: 480px;
+    background-image: url(../images/index1.jpg);
+    background-size: cover;
+    background-position: left;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    @include media-breakpoint-up(md) {
+        height: 870px;
+        background-position: 100%;
+    }
+}
+.hamburger {
+    height: 56px;
+    width: 72px;
+    border: none;
+    padding: 0;
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 33.333%;
+    height: 4px;
+    margin: auto;
+    background-color:#8D8D8D;
+    transition: all .3s;
+    &:first-child {
+        top: 30%;
+    }
+    &:nth-child(2) {
+        top: 47%;
+    }
+    &:nth-child(3) {
+        top: 64%;
+    }
+}
+.navbar-cartnumber {
+    position: absolute;
+    right: -8px;
+    top: -4px;
+    font-size: 12px;
+    width: 16px;
+    height: 13px;
+    padding: 0;
+    margin: 0;
+}
+
+.fitImg {
+    object-fit: cover;
+    object-position: 40% 31%;
+    width: 100%;
+    height: 350px;
+    @include media-breakpoint-up(md) {
+        height: 400px;
+    }
+    @include media-breakpoint-up(lg) {
+        height: 555px;
+    }
+}
+.fitImg--lg {
+    height: 680px;
+    object-position: 63% 50%;
+    @include media-breakpoint-up(lg) {
+        height: 1080px;
+    }
+
+}
+.recommendItem {
+    position: relative;
+    display: block;
+}
+.recommendItem--soldout {
+    &:hover {
+        opacity: 1;
+    }
+    &::after {
+        content: 'Sold out';
+        font-size: 24px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 350px;
+        text-align: center;
+        line-height: 350px;
+        z-index: 1;
+        @include media-breakpoint-up(sm) {
+            height: 540px;
+            line-height: 540px;
+        }
+    }
+}
+.recommendItem__img {
+    object-fit: cover;
+    object-position: 50% 100%;
+    width: 100%;
+    height: 350px;
+    @include media-breakpoint-up(sm) {
+        height: 540px;
+    }
+}

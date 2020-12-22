@@ -1,0 +1,48 @@
+// $theme-colors
+@mixin theme-colors($grid-breakpoints: null) {
+
+    @each $key,
+    $value in $theme-colors {
+
+        .text#{$grid-breakpoints}-#{$key} {
+            color: $value !important;
+        }
+
+        .bg#{$grid-breakpoints}-#{$key} {
+            background: $value !important;
+        }
+    }
+}
+
+// $sizes
+
+@mixin sizes($grid-breakpoints: null) {
+
+    @each $key,
+    $value in $sizes {
+        .w#{$grid-breakpoints}-#{$key} {
+            width: $value !important;
+        }
+    }
+}
+
+// $h1-h6
+@mixin h1-h6($grid-breakpoints: null) {
+
+    @each $key,
+    $value in $h1-h6 {
+
+        .#{$key}#{$grid-breakpoints} {
+            font-size: $value !important;
+        }
+    }
+}
+
+
+// 加上斷點
+
+@include media-breakpoint-up(md) {
+    @include theme-colors(-md);
+    @include sizes(-md);
+    @include h1-h6(-md);
+}
