@@ -1,0 +1,20 @@
+.bg-cover {
+    background-size: cover;
+}
+.bg--subscribe {
+    background-image: url(../images/index10.jpg);
+    display: flex;
+    height: 600px;
+    background-position: 25% 50%;
+    align-items: flex-end;
+    padding-bottom: 112px;
+}
+.border-bold{
+    border-width: 2px;
+}
+small {
+    font-size: $font-size-sm;
+    @include media-breakpoint-up(md) {
+        font-size: $font-size-base;
+    }
+}

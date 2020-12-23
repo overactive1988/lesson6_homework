@@ -6,14 +6,14 @@
 // Color system
 
 $white:    #fff !default;
-$gray-100: #8D8D8D !default;
+$gray-100: #E0E0E0 !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
-$gray-600: #707070 !default;
+$gray-600: #8D8D8D !default;
 $gray-700: #495057 !default;
-$gray-800: #343a40 !default;
+$gray-800: #707070 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
@@ -34,16 +34,19 @@ $grays: map-merge(
   $grays
 );
 
-$blue:    #916000 !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #dc3545 !default;
-$orange:  #fd7d14f8 !default;
-$yellow:  #ffc107 !default;
-$green:   #28a745 !default;
-$teal:    #20c997 !default;
-$cyan:    #17a2b8 !default;
+$blue:     #916000 !default;
+$indigo:   #6610f2 !default;
+$purple:   #6f42c1 !default;
+$pink:     #e83e8c !default;
+$red:      #dc3545 !default;
+$orange:   #fd7d14f8 !default;
+$yellow:   #ffc107 !default;
+$green:    #28a745 !default;
+$teal:     #20c997 !default;
+$cyan:     #17a2b8 !default;
+$primary:  #AC8A46 !default;
+$secondary:#916000 !default;
+$tertiary: #916019 !default;
 
 $colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -60,14 +63,18 @@ $colors: map-merge(
     "teal":       $teal,
     "cyan":       $cyan,
     "white":      $white,
+    "gray-light": $gray-100,
     "gray":       $gray-600,
-    "gray-dark":  $gray-800
+    "gray-dark":  $gray-800,
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "tertiary":   $tertiary
   ),
   $colors
 );
 
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
+$primary:       "primary" !default;
+$secondary:     "secondary" !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -88,7 +95,7 @@ $theme-colors: map-merge(
     "light":      $light,
     "dark":       $dark,
     "white":      #fff,
-    "gray":       #E0E0E0
+    "gray":       #8D8D8D
   ),
   $theme-colors
 );
@@ -148,13 +155,16 @@ $spacers: map-merge(
     3: $spacer ,
     4: ($spacer * 1.25),
     5: ($spacer * 1.5),
+    "lg": ($spacer * 1.75),
     6: ($spacer * 2),
+    "xl": ($spacer * 2.25),
     7: ($spacer * 2.5),
     8: ($spacer * 3),
     9: ($spacer * 3.5),
     10: ($spacer * 3.75),
     11: ($spacer * 4),
-    12: ($spacer * 5)
+    12: ($spacer * 5),
+    13: ($spacer * 7)
   ),
   $spacers
 );
