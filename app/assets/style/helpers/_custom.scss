@@ -18,3 +18,26 @@ small {
         font-size: $font-size-base;
     }
 }
+.card-img-top {
+    object-fit: cover;
+    height: 255px;
+    object-position: left;
+}
+.card-body {
+    padding: 0;
+    padding-top: 6px;
+}
+.card-option {
+    padding-bottom: 30px;
+    @include media-breakpoint-up(md) {
+        padding-bottom: 58px;
+    }
+}
+
+.modal-open {
+    padding-right: 0px !important;
+    overflow: auto;
+}
+.modal {
+    padding-right: 0px !important;
+}
