@@ -105,3 +105,12 @@
         height: 540px;
     }
 }
+
+.loginImg {
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    @include media-breakpoint-up(md) {
+        height: 730px;
+    }
+}
