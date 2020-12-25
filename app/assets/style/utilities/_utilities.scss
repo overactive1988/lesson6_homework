@@ -38,6 +38,15 @@
     }
 }
 
+@mixin position($grid-breakpoints: null) {
+    @each $key,
+    $value in $position {
+
+        .position#{$grid-breakpoints}-#{$key} {
+            position: $value !important;
+        }
+    }
+}
 
 // 加上斷點
 
@@ -45,4 +54,5 @@
     @include theme-colors(-md);
     @include sizes(-md);
     @include h1-h6(-md);
+    @include position(-md);
 }
