@@ -26,12 +26,14 @@
     }
 }
 
-// $h1-h6
-@mixin h1-h6($grid-breakpoints: null) {
+// $h1-h7
+@mixin h1-h7($grid-breakpoints: null) {
 
     @each $key,
-    $value in $h1-h6 {
-
+    $value in $h1-h7 {
+        .#{$key} {
+            font-size: $value !important;
+        }
         .#{$key}#{$grid-breakpoints} {
             font-size: $value !important;
         }
@@ -53,6 +55,13 @@
 @include media-breakpoint-up(md) {
     @include theme-colors(-md);
     @include sizes(-md);
-    @include h1-h6(-md);
+    @include h1-h7(-md);
     @include position(-md);
+}
+
+@include media-breakpoint-up(sm) {
+    @include h1-h7(-sm);
+}
+@include media-breakpoint-up(xs) {
+    @include h1-h7(-xs);
 }

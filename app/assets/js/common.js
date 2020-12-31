@@ -1,3 +1,1 @@
-$(function() {
-  console.log('Hello Bootstrap4');
-});
+AOS.init();
